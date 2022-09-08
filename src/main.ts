@@ -8,8 +8,13 @@ async function bootstrap() {
     {
       transport: Transport.RMQ,
       options: {
+<<<<<<< HEAD
         urls: [process.env.AMQP_URL],
         queue: 'main_queue',
+=======
+        urls: ['amqp://root:pass@localhost:5672'],
+        queue: 'example_queue',
+>>>>>>> stel-1
         queueOptions: {
           durable: false,
         },
