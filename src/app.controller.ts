@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller } from '@nestjs/common';
 import { AppService } from './app.service';
 import { EventPattern, MessagePattern, Payload } from '@nestjs/microservices';
 
@@ -12,10 +12,10 @@ export class AppController {
     // return this.appService.getHello();
   }
 
-  @EventPattern('findOne')
-  async findOne(data: string) {
-    console.log(data);
-    // return this.appService.getHello();
+  @MessagePattern('findOne')
+  findOne(@Payload() id: string) {
+    console.log('request:', id);
+    return this.appService.findOne(id);
   }
 
   @MessagePattern('createOne')
